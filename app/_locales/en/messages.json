@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "WatchaDoin",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "Log your activities in a very productive way",
+    "description": "The description of the application"
+  }
+}
