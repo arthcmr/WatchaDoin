@@ -1,15 +1,29 @@
 <!doctype html>
 <html>
     <head>
+        <!-- build:css styles/bootstrap.css -->
+        <link href="styles/main.css" rel="stylesheet">
+        <!-- endbuild -->
         <!-- build:css styles/main.css -->
         <link href="styles/main.css" rel="stylesheet">
         <!-- endbuild -->
 
-        <!-- build:js scripts/popup.js -->
-        <script src="scripts/popup.js"></script>
+        <!-- build:js scripts/jquery.min.js -->
+        <script src="scripts/jquery.min.js"></script>
         <!-- endbuild -->
     </head>
     <body>
-      <h1>'Allo, 'Allo!</h1>
+        <div class="form-group">
+            <label for="activity">WatchaDoin bro?</label>
+            <p><input type="text" class="form-control" id="activity" placeholder="Type whatever you're doing here..."></p>
+        </div>
+        <div id="buttons">
+        </div>
+
+
+        <!-- build:js scripts/popup.js -->
+        <script src="scripts/popup.js"></script>
+        <!-- endbuild -->
+
     </body>
 </html>
