@@ -11,6 +11,10 @@ var state = {
 	start: undefined,
 	stop: undefined
 }
+var badge = {
+	color: '',
+	text: ''
+}
 
 var history = [];
 
@@ -57,20 +61,31 @@ function addToHistory(text, start, stop) {
 //type can be "play", "pause" or "stop"
 function setBadge(type, value) {
 	if(typeof type === 'undefined') return;
+	var color, text;
 	switch(type) {
 		case 'play':
-			chrome.browserAction.setBadgeBackgroundColor({color:"#85B200"});
-			chrome.browserAction.setBadgeText({text: '►'});
+			color = "#85B200";
+			text = '►';
 			break;
 		case 'stop':
 		default:
-			chrome.browserAction.setBadgeBackgroundColor({color:"#999999"});
-			chrome.browserAction.setBadgeText({text: ''});
+			color = "#999999";
+			text = '';
 			break;
 	}
 	if(typeof value !== 'undefined') {
-		chrome.browserAction.setBadgeText({text: value});
+		text = value;
 	}
+	//store value so we only change when necessary
+	if(color !== badge.color) {
+		badge.color = color;
+		chrome.browserAction.setBadgeBackgroundColor({color: badge.color});
+	}
+	if(text !== badge.text) {
+		badge.text = text;
+		chrome.browserAction.setBadgeText({text: badge.text});
+	}
+
 };
 
 function elapsedTime(placeholder) {
